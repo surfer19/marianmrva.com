@@ -26,6 +26,7 @@ pnpm-debug.log*
 .jampack/
 
 # yarn
+.yarn/**
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
