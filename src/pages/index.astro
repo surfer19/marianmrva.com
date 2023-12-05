@@ -1,62 +1,289 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
-import Hr from "@components/Hr.astro";
-import Card from "@components/Card";
-import Socials from "@components/Socials.astro";
+import { Image } from "astro:assets";
+import avatarHeader from "../assets/avatar-header.svg";
+import ninja from "../assets/ninja.svg";
+import meImage from "../assets/images/landscape-me.png";
+
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
 import { SOCIALS } from "@config";
+import Socials from "@components/Socials.astro";
 
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+console.log("featuredPosts", featuredPosts[0].data);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
 <Layout>
-  <Header />
-  <main id="main-content">
-    <section id="hero">
-      <h1 class="mr-2">Mingalaba</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-      </a>
-
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      <p>
-        Read the blog posts or check
-        <LinkButton
-          className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
-          href="https://github.com/satnaing/astro-paper#readme"
+  <div class="lg:py-12 px-12 py-10">
+    <nav
+      class="text-primary max-w-8xl mx-auto flex items-center justify-between"
+    >
+      <div class="flex justify-center gap-4 align-middle">
+        <a
+          class="text-primary underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none"
+          href="/"
         >
-          README
-        </LinkButton> for more info.
+          <h1>Marian Mrva</h1>
+        </a>
+      </div>
+      <ul class="mr-20 flex">
+        <li class="px-5 py-2">
+          <a
+            class="underlined hover:text-team-current focus:text-team-current text-secondary block whitespace-nowrap text-lg font-medium focus:outline-none"
+            href="/blog">Blog</a
+          >
+        </li>
+        <li class="px-5 py-2">
+          <a
+            class="underlined hover:text-team-current focus:text-team-current text-secondary block whitespace-nowrap text-lg font-medium focus:outline-none"
+            href="/about">About</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</Layout>
+
+<div class="mx-4 sm:mx-20">
+  <div class="flex flex-wrap items-center justify-center sm:flex-nowrap">
+    <div class="mt-10 flex flex-col gap-10">
+      <p class="max-w-md text-4xl">
+        Helping people shape a better world through the essence of quality
+        software.
       </p>
+      <div class="mt-8 flex flex-col gap-4 space-y-4">
+        <a
+          class="group relative inline-flex text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
+          href="/blog"
+        >
+          <div
+            class="bg-white focus-ring absolute inset-0 max-w-xs transform rounded-full opacity-100 transition disabled:opacity-50"
+          >
+          </div>
+
+          <div
+            class="radius text-inverse text-black relative flex h-full w-full max-w-xs items-center justify-center space-x-5 whitespace-nowrap px-8 py-8"
+          >
+            Read the blog
+          </div>
+        </a>
+        <a
+          class="group relative inline-flex text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
+          href="/courses"
+        >
+          <div
+            class="focus-ring border-secondary bg-primary group-hover:border-transparent group-focus:border-transparent absolute inset-0 max-w-xs transform rounded-full border-2 opacity-100 transition disabled:opacity-50"
+          >
+          </div>
+
+          <div
+            class="text-primary relative flex h-full w-full max-w-xs items-center justify-center space-x-5 whitespace-nowrap px-8 py-8"
+          >
+            Learn more
+          </div></a
+        >
+        <!-- </div> -->
+      </div>
+    </div>
+    <div class="mt-10 flex flex-col gap-10 sm:flex-row">
+      <Image
+        src={avatarHeader}
+        class="max-h-75vh h-auto w-full object-contain"
+        alt="X"
+      />
+    </div>
+  </div>
+  <!-- </div> -->
+  <div class="sm-[mx-[10vw] relative mx-[5vw]">
+    <div class="mt-32">
+      <div
+        class="xs:flex-nowrap flex flex-wrap items-center justify-center gap-x-[5rem]"
+      >
+        <div class="mt-10 flex flex-col gap-10">
+          <Image
+            src={ninja}
+            class="h-auto max-h-96 w-full object-contain"
+            alt="X"
+          />
+        </div>
+        <div class="mt-10 flex max-w-lg flex-col">
+          <p class="text-3xl">
+            Hi, I'm Marian Mrva.<br /> I enhance the world through <span
+              class="text-orange-500"
+            >
+              quality software
+            </span>, building <span class="text-orange-500"
+              >outstanding products</span
+            >
+             for people and companies.
+          </p>
+          <p class="mt-10">
+            When I'm not with my family or engaged in coding, you can find me
+            dedicated to activities like martial arts, enjoying the discipline
+            and focus it brings to my life. Plus, I share these moments with my
+            loyal doggy friend, adding an extra layer of joy to my daily
+            adventures.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Header -->
+
+  <div class="relative mt-44">
+    <div class="sm-[mx-[10vw] relative mx-[5vw]">
+      <div
+        class="md:grid-cols-12 mx-auto grid max-w-7xl grid-cols-6 align-middle"
+      >
+        <div class="col-span-6 align-middle">
+          <h2
+            class="md:text-4xl text-black dark:text-white col-span text-3xl leading-tight"
+          >
+            Blog recommendations
+          </h2>
+        </div>
+        <div class="col-span-6 flex">
+          <a
+            class="text-primary col-span ml-auto inline-flex cursor-pointer items-center text-left font-medium transition focus:outline-none"
+            href="/blog"
+          >
+            <span class="mr-8 text-xl font-medium">See the full blog</span>
+            <div
+              class="relative inline-flex h-14 w-14 flex-none items-center justify-center p-1"
+            >
+              <span style="transform: none;"
+                ><svg
+                  class="-rotate-90 transform"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  ><path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M15.101 5.5V23.1094L9.40108 17.4095L8.14807 18.6619L15.9862 26.5L23.852 18.6342L22.5996 17.3817L16.8725 23.1094V5.5H15.101Z"
+                    fill="currentColor"></path></svg
+                ></span
+              >
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lg:h-12 h-10"></div>
+
+  <!-- BLOG  -->
+
+  {
+    featuredPosts.length > 0 && (
+      <div class="sm-[mx-[10vw] relative mx-[5vw]">
+        <div class="md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6 relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 gap-y-16">
+          {featuredPosts.map(({ data }) => (
+            <div class="col-span-4">
+              <div class="relative w-full">
+                <a
+                  class="group peer relative block w-full focus:outline-none"
+                  href={`/posts/${slugify(data)}`}
+                >
+                  <div class="aspect-[3/4] rounded-lg">
+                    <div class="focus-ring w-full rounded-lg object-cover object-center backdrop-blur-xl transition" />
+                    <img
+                      title="Get a catch block error message with TypeScript"
+                      alt="brown and white cat in shallow focus shot"
+                      src={data.ogImage}
+                      srcset={data.ogImage}
+                      crossorigin="anonymous"
+                      class="focus-ring w-full rounded-lg object-cover object-center transition"
+                    />
+                  </div>
+                  <div class="text-slate-500 mt-8 text-xl font-medium">
+                    {data.pubDatetime} — {data.readTime} min read
+                  </div>
+                  <div class="md:text-3xl text-black dark:text-white mt-4 text-2xl font-medium">
+                    {data.title}
+                  </div>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  <div class="sm-[mx-[10vw] relative mx-[5vw]">
+    <div class="md:mx-auto container mt-60">
+      <div class="flex flex-wrap items-center justify-center">
+        <Image src={meImage} class="h-auto w-full object-contain" alt="X" />
+      </div>
+
+      <div class="flex flex-wrap items-center gap-x-[10rem]">
+        <div class="mt-24 flex flex-col sm:flex-row">
+          <p class="max-w-[35rem] text-4xl">
+            Facing JavaScript challenges? I specialize in solving them to build
+            top-notch, user-centric products.
+          </p>
+        </div>
+        <div class="mt-10 flex flex-col">
+          <div class="mt-20 flex flex-col gap-4">
+            <a
+              class="group relative inline-flex text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
+              href="/blog"
+            >
+              <div
+                class="text-white bg-orange-500 focus-ring absolute inset-0 max-w-xs transform rounded-full opacity-100 transition disabled:opacity-50"
+              >
+              </div>
+
+              <div
+                class="radius text-inverse relative flex h-full w-full max-w-xs items-center justify-center space-x-5 whitespace-nowrap px-12 py-6"
+              >
+                HIT ME UP!
+              </div>
+            </a>
+
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="md:mx-auto container mt-60">
+        <div class="flex flex-wrap items-center justify-center">
+          <p class="w-full text-xl">Marian Mrva</p>
+          <p class="w-full text-xl">6+ years Full time JavaScript Ninja</p>
+          <p class="mt-5 w-full">Brno, Czech republic</p>
+          <p class="w-full">
+            Consultancy: JavaScript | Typescript | React | NextJS | Architecture
+          </p>
+        </div>
+        <div class="mt-5">
+          <Socials />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- </div> -->
+   ​
+
+  <!-- <Header /> -->
+
+  <!-- <main id="main-content">
+    <section id="hero">
+
       {
-        // only display if at least one social link is enabled
+      // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
             <div class="social-links">Social Links:</div>
@@ -117,45 +344,47 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </LinkButton>
       </div>
     </section>
-  </main>
+  </main> -->
+
+  <div class="mt-36"></div>
 
   <Footer />
-</Layout>
 
-<style>
-  /* ===== Hero Section ===== */
-  #hero {
-    @apply pb-6 pt-8;
-  }
-  #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-  }
-  #hero .rss-link {
-    @apply mb-6;
-  }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
-  }
-  #hero p {
-    @apply my-2;
-  }
-  .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
-  }
-  .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
-  }
+  <style>
+    /* ===== Hero Section ===== */
+    #hero {
+      @apply pb-6 pt-8;
+    }
+    #hero h1 {
+      @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    }
+    #hero .rss-link {
+      @apply mb-6;
+    }
+    #hero .rss-icon {
+      @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+    }
+    #hero p {
+      @apply my-2;
+    }
+    .social-wrapper {
+      @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+    }
+    .social-links {
+      @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+    }
 
-  /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
-  #recent-posts {
-    @apply pb-6 pt-12;
-  }
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
-  }
-  .all-posts-btn-wrapper {
-    @apply my-8 text-center;
-  }
-</style>
+    /* ===== Featured & Recent Posts Sections ===== */
+    #featured,
+    #recent-posts {
+      @apply pb-6 pt-12;
+    }
+    #featured h2,
+    #recent-posts h2 {
+      @apply text-2xl font-semibold tracking-wide;
+    }
+    .all-posts-btn-wrapper {
+      @apply my-8 text-center;
+    }
+  </style>
+</div>

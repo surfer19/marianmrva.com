@@ -3,9 +3,9 @@ author: Sat Naing
 pubDatetime: October 28th, 2021
 readTime: 5
 title: AstroPaper 3.0
-postSlug: astro-paper-v3
+postSlug: astro-paper-v3-copy
 featured: true
-ogImage: https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_840,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1510022079733-8b58aca7c4a9
+ogImage: https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_840,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1503023345310-bd7c1de61c7d
 tags:
   - release
 description: "AstroPaper Version 3: Elevating Your Web Experience with Astro v3 and Seamless View Transitions"
@@ -19,11 +19,10 @@ We're excited to announce the release of AstroPaper v3, packed with new features
 
 ### Astro v3 Integration
 
-<!-- <video autoplay loop="loop" muted="muted" plays-inline="true">
+<video autoplay loop="loop" muted="muted" plays-inline="true">
   <source src="https://github.com/satnaing/astro-paper/assets/53733092/18fdb604-1ca3-41a0-8372-1367759091ff" type="video/mp4">
   <!-- <source src="/assets/docs/astro-paper-v3-view-transitions-demo.mp4" type="video/mp4"> -->
-
-</video> -->
+</video>
 
 AstroPaper now fully supports [Astro v3](https://astro.build/blog/astro-3/), offering improved performance and rendering speed.
 
