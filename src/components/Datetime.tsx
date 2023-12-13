@@ -4,12 +4,20 @@ export interface Props {
   datetime: string | Date;
   size?: "sm" | "lg";
   className?: string;
+  readTime?: number;
 }
 
-export default function Datetime({ datetime, size = "sm", className }: Props) {
+export default function Datetime({
+  datetime,
+  size = "sm",
+  readTime,
+  className,
+}: Props) {
   return (
-    <div className={`flex items-center space-x-2 opacity-80 ${className}`}>
-      <svg
+    <div
+      className={`flex items-center opacity-80 ${className} mt-8 flex-wrap sm:flex-nowrap`}
+    >
+      {/* <svg
         xmlns="http://www.w3.org/2000/svg"
         className={`${
           size === "sm" ? "scale-90" : "scale-100"
@@ -18,11 +26,13 @@ export default function Datetime({ datetime, size = "sm", className }: Props) {
       >
         <path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path>
         <path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path>
-      </svg>
+      </svg> */}
       <span className="sr-only">Posted on:</span>
       <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
-        <FormattedDatetime datetime={datetime} />
+        {/* <FormattedDatetime datetime={datetime} /> */}
+        {typeof datetime === "string" && datetime}
       </span>
+      <span className="ml-2 "> - {readTime} min read</span>
     </div>
   );
 }

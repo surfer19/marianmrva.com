@@ -11,8 +11,27 @@ export interface Props {
 const { noMarginTop = false } = Astro.props;
 ---
 
-<footer class={`${noMarginTop ? "" : "mt-auto"}`}>
+<div class="mt-20">
   <Hr noPadding />
+</div>
+
+<div class="container mb-20 mt-28 md:mx-auto">
+  <div class="flex flex-wrap items-center justify-center">
+    <p class="w-full text-2xl">Marian Mrva</p>
+    <p class="mt-5 w-full text-2xl text-gray-400">
+      6+ years Full time JavaScript Ninja
+    </p>
+    <p class="mt-5 w-full text-gray-400">Brno, Czech republic</p>
+    <p class="w-full text-gray-400">
+      Consultancy: JavaScript | Typescript | React | NextJS | Architecture
+    </p>
+  </div>
+  <div class="mt-5">
+    <Socials />
+  </div>
+</div>
+<footer class={`${noMarginTop ? "" : "mt-auto"}`}>
+  <!-- <Hr noPadding /> -->
   <div class="footer-wrapper">
     <div class="copyright-wrapper">
       <span>Copyright &#169; Marian Mrva {currentYear}</span>

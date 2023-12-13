@@ -28,7 +28,7 @@ module.exports = {
         sm: '560px',
         md: '680px',
         lg: '940px',
-        xl: '1200px',
+        xl: '1100px',
         '2xl': '1456',
       },
     },
@@ -38,6 +38,10 @@ module.exports = {
 
     extend: {
       textColor: {
+        joy: {
+          'blue-highlight': '#36A3FF',
+          'gray-text': '#A9ADC1'
+        },
         skin: {
           base: withOpacity("--color-text-base"),
           accent: withOpacity("--color-accent"),

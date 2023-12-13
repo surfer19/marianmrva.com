@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Footer from "@components/Footer.astro";
+import Navigation from "@components/Navigation.astro";
 import { Image } from "astro:assets";
 import avatarHeader from "../assets/avatar-header.svg";
 import ninja from "../assets/ninja.svg";
@@ -22,369 +23,280 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
 <Layout>
-  <div class="lg:py-12 px-12 py-10">
-    <nav
-      class="text-primary max-w-8xl mx-auto flex items-center justify-between"
-    >
-      <div class="flex justify-center gap-4 align-middle">
-        <a
-          class="text-primary underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none"
-          href="/"
-        >
-          <h1>Marian Mrva</h1>
-        </a>
-      </div>
-      <ul class="mr-20 flex">
-        <li class="px-5 py-2">
+  <!-- NAVIGATION -->
+  <Navigation />
+  <div class="mx-4 sm:mx-20">
+    <div class="flex flex-wrap items-center justify-center sm:flex-nowrap">
+      <div class="mt-10 flex flex-col gap-10">
+        <p class="max-w-md text-4xl">
+          Helping people shape a better world through the essence of quality
+          software.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 space-y-4">
           <a
-            class="underlined hover:text-team-current focus:text-team-current text-secondary block whitespace-nowrap text-lg font-medium focus:outline-none"
-            href="/blog">Blog</a
-          >
-        </li>
-        <li class="px-5 py-2">
-          <a
-            class="underlined hover:text-team-current focus:text-team-current text-secondary block whitespace-nowrap text-lg font-medium focus:outline-none"
-            href="/about">About</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
-</Layout>
-
-<div class="mx-4 sm:mx-20">
-  <div class="flex flex-wrap items-center justify-center sm:flex-nowrap">
-    <div class="mt-10 flex flex-col gap-10">
-      <p class="max-w-md text-4xl">
-        Helping people shape a better world through the essence of quality
-        software.
-      </p>
-      <div class="mt-8 flex flex-col gap-4 space-y-4">
-        <a
-          class="group relative inline-flex text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
-          href="/blog"
-        >
-          <div
-            class="bg-white focus-ring absolute inset-0 max-w-xs transform rounded-full opacity-100 transition disabled:opacity-50"
-          >
-          </div>
-
-          <div
-            class="radius text-inverse text-black relative flex h-full w-full max-w-xs items-center justify-center space-x-5 whitespace-nowrap px-8 py-8"
-          >
-            Read the blog
-          </div>
-        </a>
-        <a
-          class="group relative inline-flex text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
-          href="/courses"
-        >
-          <div
-            class="focus-ring border-secondary bg-primary group-hover:border-transparent group-focus:border-transparent absolute inset-0 max-w-xs transform rounded-full border-2 opacity-100 transition disabled:opacity-50"
-          >
-          </div>
-
-          <div
-            class="text-primary relative flex h-full w-full max-w-xs items-center justify-center space-x-5 whitespace-nowrap px-8 py-8"
-          >
-            Learn more
-          </div></a
-        >
-        <!-- </div> -->
-      </div>
-    </div>
-    <div class="mt-10 flex flex-col gap-10 sm:flex-row">
-      <Image
-        src={avatarHeader}
-        class="max-h-75vh h-auto w-full object-contain"
-        alt="X"
-      />
-    </div>
-  </div>
-  <!-- </div> -->
-  <div class="sm-[mx-[10vw] relative mx-[5vw]">
-    <div class="mt-32">
-      <div
-        class="xs:flex-nowrap flex flex-wrap items-center justify-center gap-x-[5rem]"
-      >
-        <div class="mt-10 flex flex-col gap-10">
-          <Image
-            src={ninja}
-            class="h-auto max-h-96 w-full object-contain"
-            alt="X"
-          />
-        </div>
-        <div class="mt-10 flex max-w-lg flex-col">
-          <p class="text-3xl">
-            Hi, I'm Marian Mrva.<br /> I enhance the world through <span
-              class="text-orange-500"
-            >
-              quality software
-            </span>, building <span class="text-orange-500"
-              >outstanding products</span
-            >
-             for people and companies.
-          </p>
-          <p class="mt-10">
-            When I'm not with my family or engaged in coding, you can find me
-            dedicated to activities like martial arts, enjoying the discipline
-            and focus it brings to my life. Plus, I share these moments with my
-            loyal doggy friend, adding an extra layer of joy to my daily
-            adventures.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Blog Header -->
-
-  <div class="relative mt-44">
-    <div class="sm-[mx-[10vw] relative mx-[5vw]">
-      <div
-        class="md:grid-cols-12 mx-auto grid max-w-7xl grid-cols-6 align-middle"
-      >
-        <div class="col-span-6 align-middle">
-          <h2
-            class="md:text-4xl text-black dark:text-white col-span text-3xl leading-tight"
-          >
-            Blog recommendations
-          </h2>
-        </div>
-        <div class="col-span-6 flex">
-          <a
-            class="text-primary col-span ml-auto inline-flex cursor-pointer items-center text-left font-medium transition focus:outline-none"
+            class="group relative inline-flex text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
             href="/blog"
           >
-            <span class="mr-8 text-xl font-medium">See the full blog</span>
             <div
-              class="relative inline-flex h-14 w-14 flex-none items-center justify-center p-1"
+              class="focus-ring absolute inset-0 max-w-xs transform rounded-full bg-white opacity-100 transition disabled:opacity-50"
             >
-              <span style="transform: none;"
-                ><svg
-                  class="-rotate-90 transform"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  ><path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M15.101 5.5V23.1094L9.40108 17.4095L8.14807 18.6619L15.9862 26.5L23.852 18.6342L22.5996 17.3817L16.8725 23.1094V5.5H15.101Z"
-                    fill="currentColor"></path></svg
-                ></span
+            </div>
+
+            <div
+              class="radius text-inverse relative flex h-full w-full max-w-xs items-center justify-center space-x-5 whitespace-nowrap px-8 py-8 text-black"
+            >
+              Read the blog
+            </div>
+          </a>
+
+          <a
+            class="group relative inline-flex w-full cursor-pointer text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
+            id="learn-more"
+          >
+            <div
+              class="group relative inline-flex w-full text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
+            >
+              <div
+                class="focus-ring border-secondary bg-primary absolute inset-0 max-w-xs transform rounded-full border-2 opacity-100 transition disabled:opacity-50 group-hover:border-transparent group-focus:border-transparent"
               >
+              </div>
+
+              <div
+                class="text-primary relative flex h-full w-full max-w-xs items-center justify-center space-x-5 whitespace-nowrap px-8 py-8"
+              >
+                Learn more
+              </div>
             </div>
           </a>
         </div>
       </div>
+      <div class="mt-10 flex flex-col gap-10 sm:flex-row">
+        <Image
+          src={avatarHeader}
+          class="max-h-75vh h-auto w-full object-contain"
+          alt="X"
+        />
+      </div>
     </div>
-  </div>
+    <!-- </div> -->
+    <div class="sm-[mx-[10vw] relative mx-[5vw]">
+      <div class="mt-32">
+        <div
+          class="xs:flex-nowrap flex flex-wrap items-center justify-center gap-x-[5rem]"
+          id="about-section"
+        >
+          <div class="mt-10 flex flex-col gap-10">
+            <Image
+              src={ninja}
+              class="h-auto max-h-96 w-full object-contain"
+              alt="X"
+            />
+          </div>
+          <div class="mt-10 flex max-w-lg flex-col">
+            <p class="text-3xl">
+              Hi, I'm Marian Mrva.<br /> I enhance the world through <span
+                class="text-orange-500"
+              >
+                quality software
+              </span>, building <span class="text-orange-500"
+                >outstanding products</span
+              >
+               for people and companies.
+            </p>
+            <p class="mt-10">
+              When I'm not with my family or engaged in coding, you can find me
+              dedicated to activities like martial arts, enjoying the discipline
+              and focus it brings to my life. Plus, I share these moments with
+              my loyal doggy friend, adding an extra layer of joy to my daily
+              adventures.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="lg:h-12 h-10"></div>
+    <!-- Blog Header -->
 
-  <!-- BLOG  -->
-
-  {
-    featuredPosts.length > 0 && (
+    <div class="relative mt-44">
       <div class="sm-[mx-[10vw] relative mx-[5vw]">
-        <div class="md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6 relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 gap-y-16">
-          {featuredPosts.map(({ data }) => (
-            <div class="col-span-4">
-              <div class="relative w-full">
-                <a
-                  class="group peer relative block w-full focus:outline-none"
-                  href={`/posts/${slugify(data)}`}
-                >
-                  <div class="aspect-[3/4] rounded-lg">
-                    <div class="focus-ring w-full rounded-lg object-cover object-center backdrop-blur-xl transition" />
-                    <img
-                      title="Get a catch block error message with TypeScript"
-                      alt="brown and white cat in shallow focus shot"
-                      src={data.ogImage}
-                      srcset={data.ogImage}
-                      crossorigin="anonymous"
-                      class="focus-ring w-full rounded-lg object-cover object-center transition"
-                    />
-                  </div>
-                  <div class="text-slate-500 mt-8 text-xl font-medium">
-                    {data.pubDatetime} — {data.readTime} min read
-                  </div>
-                  <div class="md:text-3xl text-black dark:text-white mt-4 text-2xl font-medium">
-                    {data.title}
-                  </div>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    )
-  }
-
-  <div class="sm-[mx-[10vw] relative mx-[5vw]">
-    <div class="md:mx-auto container mt-60">
-      <div class="flex flex-wrap items-center justify-center">
-        <Image src={meImage} class="h-auto w-full object-contain" alt="X" />
-      </div>
-
-      <div class="flex flex-wrap items-center gap-x-[10rem]">
-        <div class="mt-24 flex flex-col sm:flex-row">
-          <p class="max-w-[35rem] text-4xl">
-            Facing JavaScript challenges? I specialize in solving them to build
-            top-notch, user-centric products.
-          </p>
-        </div>
-        <div class="mt-10 flex flex-col">
-          <div class="mt-20 flex flex-col gap-4">
+        <div
+          class="mx-auto grid max-w-7xl grid-cols-6 align-middle md:grid-cols-12"
+        >
+          <div class="col-span-6 align-middle">
+            <h2
+              class="col-span text-3xl leading-tight text-black dark:text-white md:text-4xl"
+            >
+              Blog recommendations
+            </h2>
+          </div>
+          <div class="col-span-6 flex">
             <a
-              class="group relative inline-flex text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
+              class="text-primary col-span ml-auto inline-flex cursor-pointer items-center text-left font-medium transition focus:outline-none"
               href="/blog"
             >
+              <span class="mr-8 text-xl font-medium">See the full blog</span>
               <div
-                class="text-white bg-orange-500 focus-ring absolute inset-0 max-w-xs transform rounded-full opacity-100 transition disabled:opacity-50"
+                class="relative inline-flex h-14 w-14 flex-none items-center justify-center p-1"
               >
-              </div>
-
-              <div
-                class="radius text-inverse relative flex h-full w-full max-w-xs items-center justify-center space-x-5 whitespace-nowrap px-12 py-6"
-              >
-                HIT ME UP!
+                <span style="transform: none;"
+                  ><svg
+                    class="-rotate-90 transform"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    ><path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M15.101 5.5V23.1094L9.40108 17.4095L8.14807 18.6619L15.9862 26.5L23.852 18.6342L22.5996 17.3817L16.8725 23.1094V5.5H15.101Z"
+                      fill="currentColor"></path></svg
+                  ></span
+                >
               </div>
             </a>
-
-            <!-- </div> -->
           </div>
-        </div>
-      </div>
-      <div class="md:mx-auto container mt-60">
-        <div class="flex flex-wrap items-center justify-center">
-          <p class="w-full text-xl">Marian Mrva</p>
-          <p class="w-full text-xl">6+ years Full time JavaScript Ninja</p>
-          <p class="mt-5 w-full">Brno, Czech republic</p>
-          <p class="w-full">
-            Consultancy: JavaScript | Typescript | React | NextJS | Architecture
-          </p>
-        </div>
-        <div class="mt-5">
-          <Socials />
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- </div> -->
-   ​
+    <div class="h-10 lg:h-12"></div>
 
-  <!-- <Header /> -->
-
-  <!-- <main id="main-content">
-    <section id="hero">
-
-      {
-      // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
-
-    <Hr />
+    <!-- BLOG  -->
 
     {
       featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data }) => (
-                <Card
-                  href={`/posts/${slugify(data)}`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              ))}
-            </ul>
-          </section>
-          <Hr />
-        </>
+        <div class="sm-[mx-[10vw] relative mx-[5vw]">
+          <div class="relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
+            {featuredPosts.map(({ data }) => (
+              <div class="col-span-4">
+                <div class="relative w-full">
+                  <a
+                    class="group peer relative block w-full focus:outline-none"
+                    href={`/posts/${slugify(data)}`}
+                  >
+                    <div class="aspect-[3/4] rounded-lg">
+                      <div class="focus-ring w-full rounded-lg object-cover object-center backdrop-blur-xl transition" />
+                      <img
+                        title="Get a catch block error message with TypeScript"
+                        alt="brown and white cat in shallow focus shot"
+                        src={data.ogImage}
+                        srcset={data.ogImage}
+                        crossorigin="anonymous"
+                        class="focus-ring w-full rounded-lg object-cover object-center transition"
+                      />
+                    </div>
+                    <div class="mt-8 text-xl font-medium text-slate-500">
+                      {data.pubDatetime} — {data.readTime} min read
+                    </div>
+                    <div class="mt-4 text-2xl font-medium text-black dark:text-white md:text-3xl">
+                      {data.title}
+                    </div>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       )
     }
 
-    <section id="recent-posts">
-      <h2>Recent Posts</h2>
-      <ul>
-        {
-          sortedPosts
-            .filter(({ data }) => !data.featured)
-            .map(
-              ({ data }, index) =>
-                index < 4 && (
-                  <Card
-                    href={`/posts/${slugify(data)}`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )
-        }
-      </ul>
-      <div class="all-posts-btn-wrapper">
-        <LinkButton href="/posts">
-          All Posts
-          <svg xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-            ></path>
-          </svg>
-        </LinkButton>
+    <div class="sm-[mx-[10vw] relative mx-[5vw]">
+      <div class="container mt-60 md:mx-auto">
+        <div class="flex flex-wrap items-center justify-center">
+          <Image src={meImage} class="h-auto w-full object-contain" alt="X" />
+        </div>
+
+        <div class="flex flex-wrap items-center gap-x-[10rem]">
+          <div class="mt-24 flex flex-col sm:flex-row">
+            <p class="max-w-[35rem] text-4xl">
+              Facing JavaScript challenges? I specialize in solving them to
+              build top-notch, user centric products.
+            </p>
+          </div>
+          <div class="mt-10 flex flex-col">
+            <div class="mt-20 flex flex-col gap-4">
+              <div
+                class="group relative inline-flex text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
+              >
+                <div
+                  class="focus-ring absolute inset-0 max-w-xs transform rounded-full bg-orange-500 text-white opacity-100 transition disabled:opacity-50"
+                >
+                </div>
+
+                <a href="mailto:marian.mrva@outlook.com">
+                  <div
+                    class="radius text-inverse relative flex h-full w-full max-w-xs items-center justify-center space-x-5 whitespace-nowrap px-12 py-6"
+                  >
+                    HIT ME UP!
+                  </div>
+                </a>
+              </div>
+
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-  </main> -->
+    </div>
 
-  <div class="mt-36"></div>
+    <div class="mt-36"></div>
 
-  <Footer />
+    <Footer />
 
-  <style>
-    /* ===== Hero Section ===== */
-    #hero {
-      @apply pb-6 pt-8;
-    }
-    #hero h1 {
-      @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-    }
-    #hero .rss-link {
-      @apply mb-6;
-    }
-    #hero .rss-icon {
-      @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
-    }
-    #hero p {
-      @apply my-2;
-    }
-    .social-wrapper {
-      @apply mt-4 flex flex-col sm:flex-row sm:items-center;
-    }
-    .social-links {
-      @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
-    }
+    <style>
+      /* ===== Hero Section ===== */
+      #hero {
+        @apply pb-6 pt-8;
+      }
+      #hero h1 {
+        @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+      }
+      #hero .rss-link {
+        @apply mb-6;
+      }
+      #hero .rss-icon {
+        @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+      }
+      #hero p {
+        @apply my-2;
+      }
+      .social-wrapper {
+        @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+      }
+      .social-links {
+        @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+      }
 
-    /* ===== Featured & Recent Posts Sections ===== */
-    #featured,
-    #recent-posts {
-      @apply pb-6 pt-12;
+      /* ===== Featured & Recent Posts Sections ===== */
+      #featured,
+      #recent-posts {
+        @apply pb-6 pt-12;
+      }
+      #featured h2,
+      #recent-posts h2 {
+        @apply text-2xl font-semibold tracking-wide;
+      }
+      .all-posts-btn-wrapper {
+        @apply my-8 text-center;
+      }
+    </style>
+  </div>
+</Layout>
+
+<script>
+  const learnMore = document.getElementById("learn-more");
+  learnMore?.addEventListener("click", () => {
+    smoothScrollTo("about-section");
+  });
+
+  function smoothScrollTo(targetId: string) {
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+      });
     }
-    #featured h2,
-    #recent-posts h2 {
-      @apply text-2xl font-semibold tracking-wide;
-    }
-    .all-posts-btn-wrapper {
-      @apply my-8 text-center;
-    }
-  </style>
-</div>
+  }
+</script>

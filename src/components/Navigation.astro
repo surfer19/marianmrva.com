@@ -1,0 +1,45 @@
+---
+export interface Props {
+  activeNav?: "blog" | "tags" | "about" | "search" | "/";
+}
+
+const { activeNav } = Astro.props;
+
+console.log("actt", activeNav);
+---
+
+<div class="px-12 py-10 lg:py-12">
+  <nav class="text-primary max-w-8xl mx-auto flex items-center justify-between">
+    <div class="flex justify-center gap-4 align-middle">
+      <a
+        class="text-primary underlined block whitespace-nowrap text-2xl font-medium transition focus:outline-none"
+        href="/"
+      >
+        <h1>Marian Mrva</h1>
+      </a>
+    </div>
+    <ul class="mr-20 flex">
+      <li class="px-5 py-2">
+        <div class={activeNav === undefined ? "active" : ""}>
+          <a
+            class="underlined hover:text-team-current focus:text-team-current text-secondary block whitespace-nowrap text-lg font-medium focus:outline-none"
+            href="/">About</a
+          >
+        </div>
+      </li>
+      <li class="px-5 py-2">
+        <div class={activeNav === "blog" ? "active" : ""}>
+          <a
+            class="underlined hover:text-team-current focus:text-team-current text-secondary block whitespace-nowrap text-lg font-medium focus:outline-none"
+            href="/blog">Blog</a
+          >
+        </div>
+      </li>
+    </ul>
+  </nav>
+</div>
+<style>
+  .active {
+    @apply underline decoration-2 underline-offset-[1rem];
+  }
+</style>

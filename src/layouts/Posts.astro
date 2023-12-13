@@ -8,6 +8,7 @@ import Card from "@components/Card";
 import LinkButton from "@components/LinkButton.astro";
 import slugify from "@utils/slugify";
 import type { CollectionEntry } from "astro:content";
+import Navigation from "@components/Navigation.astro";
 
 export interface Props {
   pageNum: number;
@@ -19,19 +20,49 @@ const { pageNum, totalPages, posts } = Astro.props;
 
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
+// console.log("posts", posts);
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
-  <Header activeNav="posts" />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
-    <ul>
-      {
-        posts.map(({ data }) => (
-          <Card href={`/posts/${slugify(data)}`} frontmatter={data} />
-        ))
-      }
-    </ul>
-  </Main>
+  <Navigation activeNav="blog" />
+  <div class="container">
+    <!-- <Header activeNav="posts" /> -->
+    <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
+      <div class="relative">
+        <div
+          class="relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6"
+        >
+          {
+            posts.map(({ data }) => (
+              <div class="col-span-4">
+                <div class="relative w-full">
+                  <a href={`/blog/${slugify(data)}`}>
+                    <div class="aspect-[3/4] rounded-lg">
+                      <div class="focus-ring w-full rounded-lg object-cover object-center backdrop-blur-xl transition" />
+                      <img
+                        title="Get a catch block error message with TypeScript"
+                        alt="brown and white cat in shallow focus shot"
+                        src={data.ogImage}
+                        srcset={data.ogImage}
+                        crossorigin="anonymous"
+                        class="focus-ring w-full rounded-lg object-cover object-center transition"
+                      />
+                    </div>
+                    <div class="mt-8 text-xl font-medium text-slate-500">
+                      {data.pubDatetime} — {data.readTime} min read
+                    </div>
+                    <div class="mt-4 text-2xl font-medium text-black dark:text-white md:text-3xl">
+                      {data.title}
+                    </div>
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </Main>
+  </div>
 
   {
     totalPages > 1 && (
@@ -61,8 +92,12 @@ const next = pageNum < totalPages ? "" : "disabled";
       </nav>
     )
   }
-  <Footer noMarginTop={totalPages > 1} />
 </Layout>
+<div class="mx-4 sm:mx-20">
+  <div class="container">
+    <Footer noMarginTop={totalPages > 1} />
+  </div>
+</div>
 
 <style>
   .pagination-wrapper {
