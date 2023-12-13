@@ -17,7 +17,6 @@ const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-console.log("featuredPosts", featuredPosts[0].data);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -54,7 +53,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             id="learn-more"
           >
             <div
-              class="group relative inline-flex w-full text-lg font-medium opacity-100 transition focus:outline-none disabled:opacity-50"
+              class="group relative inline-flex w-full text-lg font-medium opacity-100 focus:outline-none disabled:opacity-50"
             >
               <div
                 class="focus-ring border-secondary bg-primary absolute inset-0 max-w-xs transform rounded-full border-2 opacity-100 transition disabled:opacity-50 group-hover:border-transparent group-focus:border-transparent"
@@ -170,13 +169,12 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           <div class="relative mx-auto grid max-w-7xl grid-cols-4 gap-x-4 gap-y-16 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6">
             {featuredPosts.map(({ data }) => (
               <div class="col-span-4">
-                <div class="relative w-full">
+                <div class="text relative w-full">
                   <a
-                    class="group peer relative block w-full focus:outline-none"
-                    href={`/posts/${slugify(data)}`}
+                    class="hover:scale-103 group peer relative block w-full transition duration-500 ease-in-out hover:-translate-y-2 focus:outline-none"
+                    href={`/blog/${slugify(data)}`}
                   >
                     <div class="aspect-[3/4] rounded-lg">
-                      <div class="focus-ring w-full rounded-lg object-cover object-center backdrop-blur-xl transition" />
                       <img
                         title="Get a catch block error message with TypeScript"
                         alt="brown and white cat in shallow focus shot"

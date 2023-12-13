@@ -20,13 +20,11 @@ const { pageNum, totalPages, posts } = Astro.props;
 
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
-// console.log("posts", posts);
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
   <Navigation activeNav="blog" />
   <div class="container">
-    <!-- <Header activeNav="posts" /> -->
     <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
       <div class="relative">
         <div
@@ -36,16 +34,19 @@ const next = pageNum < totalPages ? "" : "disabled";
             posts.map(({ data }) => (
               <div class="col-span-4">
                 <div class="relative w-full">
-                  <a href={`/blog/${slugify(data)}`}>
+                  <a
+                    href={`/blog/${slugify(data)}`}
+                    class="hover:scale-103 group peer relative block w-full transition duration-500 ease-in-out hover:-translate-y-2 focus:outline-none"
+                  >
                     <div class="aspect-[3/4] rounded-lg">
-                      <div class="focus-ring w-full rounded-lg object-cover object-center backdrop-blur-xl transition" />
                       <img
                         title="Get a catch block error message with TypeScript"
                         alt="brown and white cat in shallow focus shot"
                         src={data.ogImage}
                         srcset={data.ogImage}
                         crossorigin="anonymous"
-                        class="focus-ring w-full rounded-lg object-cover object-center transition"
+                        class="focus-ring  w-full rounded-lg object-cover object-center transition 
+                        "
                       />
                     </div>
                     <div class="mt-8 text-xl font-medium text-slate-500">
