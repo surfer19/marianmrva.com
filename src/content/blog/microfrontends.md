@@ -1,11 +1,11 @@
 ---
 author: Marian Mrva
-pubDatetime: Novemer 12th, 2023
+pubDatetime: November 12th, 2023
 readTime: 10
 title: Micro Frontends - an Introduction
 postSlug: microfrontends-intro
 featured: true
-ogImage: ../../../src/assets/images/blog/micro-cover-small.webp
+ogImage: /assets/images/blog/micro-cover-small.webp
 tags:
   - Frontend
   - UI
