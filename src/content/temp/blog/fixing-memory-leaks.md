@@ -5,7 +5,7 @@ readTime: 5
 title: Fixing a Memory Leak in a Production Node.js App
 postSlug: fixing-memory-leaks
 featured: true
-ogImage: https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_840,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1510022079733-8b58aca7c4a9
+ogImage: ../../../src/assets/images/blog/example.webp
 tags:
   - leaks
   - performance
@@ -13,7 +13,7 @@ tags:
 description: "AstroPaper Version 3: Elevating Your Web Experience with Astro v3 and Seamless View Transitions"
 ---
 
-![A starry night sky.](../../assets/images/blog/example-cover.jpeg)
+![A starry night sky.](../../../src/assets/kimages/blog/example.webp)
 
 ### Heap Snapshots
 

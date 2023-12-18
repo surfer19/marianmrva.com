@@ -41,8 +41,11 @@ const ogUrl = new URL(
   ogImage={ogUrl}
   canonicalURL={canonicalURL}
 >
-  <div class="container">
-    <Navigation activeNav="blog" />
+  <div class="progress"></div>
+
+  <Navigation activeNav="blog" />
+
+  <div class="container-narrow">
     <main>
       <div class="flex justify-start">
         <button
@@ -97,5 +100,26 @@ const ogUrl = new URL(
   }
   .tags-container {
     @apply my-8;
+  }
+
+  .progress {
+    height: 0.2rem;
+    background: #35a3ff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform-origin: 0 50%;
+    animation: scaleProgress auto linear;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes scaleProgress {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
   }
 </style>
