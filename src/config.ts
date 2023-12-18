@@ -3,8 +3,8 @@ import type { Site, SocialObjects } from "./types";
 export const SITE: Site = {
   website: "https://marianmrva-com.pages.dev/", // replace this with your deployed domain
   author: "Marian Mrva",
-  desc: "TODO:",
-  title: "TODO:",
+  desc: "Marian Mrva - Software Engineer and Consultant. Enhancing the world through quality software and building outstanding products for individuals and companies. Blog featuring insights on JavaScript, Typescript, React, NextJS, and architecture. Explore my thoughts on technology.",
+  title: "Marian Mrva",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: false,
   postPerPage: 3,
