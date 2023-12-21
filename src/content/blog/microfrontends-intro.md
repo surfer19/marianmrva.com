@@ -11,7 +11,7 @@ tags:
   - UI
   - Product Management
   - Architecture
-description: ""
+description: The goal of the Micro Frontend is to provide the user an opportunity to do one action and do it as good as possible
 ---
 
 ![this article](../../../src/assets/images/blog/microfrontends/micro-cover-lg.webp)
