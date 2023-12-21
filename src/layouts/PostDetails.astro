@@ -41,7 +41,11 @@ const ogUrl = new URL(
   ogImage={ogUrl}
   canonicalURL={canonicalURL}
 >
-  <div class="progress"></div>
+  <div class="header">
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar-id"></div>
+    </div>
+  </div>
 
   <Navigation activeNav="blog" />
 
@@ -102,25 +106,47 @@ const ogUrl = new URL(
   .tags-container {
     @apply my-8;
   }
+  /* default CSS variables */
+  :root {
+    --progress-color: #2ecc71;
+    --progress-height: 0.5rem;
+  }
 
-  .progress {
-    height: 0.2rem;
-    background: #35a3ff;
+  /* post container */
+  /* Style the header: fixed position (always stay at the top) */
+  .header {
     position: fixed;
     top: 0;
-    left: 0;
+    z-index: 1;
     width: 100%;
-    transform-origin: 0 50%;
-    animation: scaleProgress auto linear;
-    animation-timeline: scroll(root);
   }
 
-  @keyframes scaleProgress {
-    0% {
-      transform: scaleX(0);
-    }
-    100% {
-      transform: scaleX(1);
-    }
+  /* The progress container (grey background) */
+  .progress-container {
+    width: 100%;
+    height: 0.25rem;
+  }
+
+  /* The progress bar (scroll indicator) */
+  .progress-bar {
+    height: 0.25rem;
+    width: 0%;
+    @apply bg-joy-blue-highlight;
   }
 </style>
+
+<script is:inline>
+  window.onscroll = function () {
+    updateProgressBarStyles();
+  };
+
+  function updateProgressBarStyles() {
+    let winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    let height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("progress-bar-id").style.width = scrolled + "%";
+  }
+</script>

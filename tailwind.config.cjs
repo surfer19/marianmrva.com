@@ -49,6 +49,9 @@ module.exports = {
         },
       },
       backgroundColor: {
+        joy: {
+          'blue-highlight': '#36A3FF',
+        },
         skin: {
           fill: withOpacity("--color-fill"),
 
