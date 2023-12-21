@@ -154,7 +154,7 @@ export const handlers = [coctailsHandler];
 
 <strong>Handler Definition:</strong> The `"coctailsHandler"` is defined using `"http.get"`, indicating that it handles HTTP GET requests. It takes two generic types: `"PathParams"` for URL path parameters and `"CoctailResponse"` for the expected response type.
 
-The first argument defines a predicate path to the API endpoint `"https://thecocktaildb.com/api/json/v1/1/search.php"` we want to intercept.
+The first argument defines a predicate path to the API endpoint `"/api/json/v1/1/search.php"` we want to intercept.
 
 <strong>Request Resolver:</strong> The second argument to `"http.get"` is a resolver function. It intercepts the request and returns a mocked response using `"HttpResponse.json"`. In this case, it returns the predefined `"mockCoctailSearchResponse"` as the JSON payload.
 
