@@ -79,7 +79,7 @@ module.exports = {
       },
       fontFamily: {
         // mono: ["IBM Plex Mono", "monospace"],
-        poppins: ["Poppins"]
+        poppins: ["Poppins", "Open Sans", "Arial"],
       },
     },
   },

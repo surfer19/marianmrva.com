@@ -70,11 +70,14 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </div>
       </div>
       <div class="mt-10 flex flex-col gap-10 sm:flex-row">
-        <Image
-          src={avatarHeader}
-          class="max-h-75vh h-auto w-full object-contain"
-          alt="X"
-        />
+        <div class="max-h-75vh h-auto w-full object-contain">
+          <img
+            src={avatarHeader.src}
+            width={avatarHeader.width}
+            height={avatarHeader.height}
+            alt="Avatar header image"
+          />
+        </div>
       </div>
     </div>
     <!-- </div> -->
@@ -85,11 +88,14 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           id="about-section"
         >
           <div class="mt-10 flex flex-col gap-10">
-            <Image
-              src={ninja}
-              class="h-auto max-h-96 w-full object-contain"
-              alt="X"
-            />
+            <div class="h-auto max-h-96 w-full object-contain">
+              <img
+                src={ninja.src}
+                width={ninja.width}
+                height={ninja.height}
+                alt="Ninja"
+              />
+            </div>
           </div>
           <div class="mt-10 flex max-w-lg flex-col">
             <p class="text-3xl">
@@ -202,7 +208,11 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     <div class="sm-[mx-[10vw] relative mx-[5vw]">
       <div class="container mt-60 md:mx-auto">
         <div class="flex flex-wrap items-center justify-center">
-          <Image src={meImage} class="h-auto w-full object-contain" alt="X" />
+          <Image
+            src={meImage}
+            class="h-auto w-full object-contain"
+            alt="Marian Mrva"
+          />
         </div>
 
         <div class="flex flex-wrap items-center gap-x-[10rem]">
