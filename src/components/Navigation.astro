@@ -6,7 +6,7 @@ export interface Props {
 const { activeNav } = Astro.props;
 ---
 
-<div class="px-12 py-10 lg:py-12">
+<div class="px-4 py-10 md:px-12 lg:py-12">
   <nav class="text-primary max-w-8xl mx-auto flex items-center justify-between">
     <div class="flex justify-center gap-4 align-middle">
       <a
@@ -16,7 +16,7 @@ const { activeNav } = Astro.props;
         <h1>Marian Mrva</h1>
       </a>
     </div>
-    <ul class="mr-20 flex">
+    <ul class="mr-0 flex sm:mr-20">
       <li class="px-5 py-2">
         <div class={activeNav === undefined ? "active" : ""}>
           <a
