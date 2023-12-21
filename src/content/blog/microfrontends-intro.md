@@ -11,10 +11,10 @@ tags:
   - UI
   - Product Management
   - Architecture
-description: "AstroPaper Version 3: Elevating Your Web Experience with Astro v3 and Seamless View Transitions"
+description: ""
 ---
 
-![this article](../../../src/assets/images/blog/micro-cover-lg.webp)
+![this article](../../../src/assets/images/blog/microfrontends/micro-cover-lg.webp)
 
 ## History
 
@@ -42,7 +42,7 @@ As an example we could use a travel agency that has a product focused on the pla
 
 Using standard monolithic approach, the structure of the company usually begins with the following visualisation (Standard Monolith approach):
 
-![this article](../../../src/assets/images/blog/micro-1.webp)
+![this article](../../../src/assets/images/blog/microfrontends/micro-1.webp)
 
 People are divided, based on what they are specialised into. Seems it is nothing unusual.
 
@@ -86,7 +86,7 @@ Example of the composition of a teams working with Micro Frontends:
 
 <br/>
 
-![this article](../../../src/assets/images/blog/micro-2.webp)
+![this article](../../../src/assets/images/blog/microfrontends/micro-2.webp)
 
 <br/>
 
@@ -100,13 +100,13 @@ General diagram of the release pipeline:
 
 <br/>
 
-![this article](../../../src/assets/images/blog/micro-3.webp)
+![this article](../../../src/assets/images/blog/microfrontends/micro-3.webp)
 
 <br/>
 
 For example, team “Search”, could use the following release strategy (diagram below). They could go through the whole process from DEV all the way to Production without disturbing team “Results” or team “Payment”. In case “Search” Micro Frontend changes the way how it communicates with the other MFs, there might be some small internal communication about API, but that’s on another topic 😉.
 
-![this article](../../../src/assets/images/blog/micro-4.webp)
+![this article](../../../src/assets/images/blog/microfrontends/micro-4.webp)
 
 ## Summary
 
