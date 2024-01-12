@@ -5,10 +5,21 @@ import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
 
 import { getCollection } from "astro:content";
+import { parseCustomDate } from "@utils/parseCustomDate";
 
 const posts = await getCollection("blog");
 
-const sortedPosts = getSortedPosts(posts);
+const sortedPosts = getSortedPosts(posts).sort((a, b) => {
+  const dateA: Date | null = parseCustomDate(a.data.pubDatetime);
+  const dateB: Date | null = parseCustomDate(b.data.pubDatetime);
+
+  // Handle null values
+  if (!dateA || !dateB) {
+    return 0; // Adjust as needed
+  }
+
+  return dateB.getTime() - dateA.getTime();
+});
 
 const totalPages = getPageNumbers(sortedPosts.length);
 
