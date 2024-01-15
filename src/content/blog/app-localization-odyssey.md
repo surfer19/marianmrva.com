@@ -10,7 +10,7 @@ tags:
   - frontend
   - localization
 
-description: TODO
+description: Embarking on the app localization journey has uncovered a spectrum of strategies, from beginner-friendly setups to advanced configurations.
 ---
 
 ![2023 recap cover image](../../../src/assets/images/blog/app-localization/app-localization-cover-lg.png)
